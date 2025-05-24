@@ -1,0 +1,1878 @@
+\documentclass[brazil,14]{beamer}
+\usepackage[latin1]{inputenc}
+\usepackage{beamerthemesplit}
+\usepackage{color}
+\usepackage{xcolor}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{fancybox}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{ulem}
+\usepackage{listingsutf8}
+\usetheme{Copenhagen}
+\usefonttheme{serif}
+%\usetheme{CambridgeUS}
+%\usetheme{Malmoe}
+\setbeamertemplate{footline}[frame number]
+\newenvironment{itemizespc}{
+\begin{itemize}
+  \setlength{\itemsep}{15pt}
+}{\end{itemize}}
+
+\xdefinecolor{darkblue}{rgb}{0,0.2,0.4}
+
+\newcommand{\lyxline}[1][1pt]{%
+  \par\noindent%
+  \rule[.5ex]{\linewidth}{#1}\par}
+  
+  % -inicio codigo fonte\usepackage{listings}
+\lstset{
+  language=C,
+  basicstyle=\ttfamily\scriptsize, 
+  %basicstyle=\ttfamily\tiny,
+  extendedchars=true, 
+  showspaces=false, 
+  showstringspaces=false, 
+  numbers=left,
+  numberstyle=\tiny,
+  breaklines=true, 
+  backgroundcolor=\color{yellow!8},
+  breakautoindent=true, 
+  captionpos=b,
+  xleftmargin=0pt,
+}
+%\renewcommand{\lstlistlistingname}{Lista de Listagens}
+% - fim codigo fonte
+
+\begin{document}
+
+\title{Minicurso de Introdução ao GNU/Linux}
+
+%\begin{figure}
+%\includegraphics[scale=0.3]{logoICMC.png}
+%\end{figure}
+
+%\author{May 15, 2015}
+
+
+
+
+%\frame{\titlepage}
+
+%-------------------------------------
+
+
+
+%\frame{\frametitle{Corner point detection}
+%\begin{itemizespc}
+%\item Case 1
+%\begin{figure}
+%\includegraphics[scale=0.35]{figs/teste2.png}
+%\end{figure}
+%\end{itemizespc}
+%}
+
+%\frame{\frametitle{Corner point detection}
+%\begin{itemizespc}
+%\item Case 2
+%\begin{figure}
+%\includegraphics[scale=0.35]{figs/teste3.png}
+%\end{figure}
+%\end{itemizespc}
+%}
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=1.0\linewidth]{figs/unb.png}\\
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\vspace{0.75cm}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{Minicurso de\\
+Introdução ao GNU/Linux}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+
+\vspace{0.4cm}
+\textbf{IEEE Computer Society UnB}\\
+\vspace{0.4cm}
+{\it Brasília-DF, 2025}\\
+ \end{center}
+\end{frame}
+
+
+\begin{frame}{Sumário}
+\begin{itemize}
+  \item Preliminares
+  \item História do Linux
+  \item GNU/Linux
+  \item Distribuições
+  \item Terminal e Comandos
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Referências}
+\begin{itemize}
+  \item Negus C. Linux Bible 10ed 2020
+  \item Este material está licenciado conforme a Licença GPL
+  \item Responsável: IEEE Computer Society UnB
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{Preliminares}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}{O que é um Sistema Operacional?}
+\begin{itemize}
+  \item É um software que atua como intermediário entre o usuário e o hardware do computador.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é um Sistema Operacional?}
+\begin{itemize}
+  \item É um software que atua como intermediário entre o usuário e o hardware do computador.
+  \item Responsável por gerenciar recursos como CPU, memória, dispositivos de entrada/saída e arquivos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é um Sistema Operacional?}
+\begin{itemize}
+  \item É um software que atua como intermediário entre o usuário e o hardware do computador.
+  \item Responsável por gerenciar recursos como CPU, memória, dispositivos de entrada/saída e arquivos.
+  \item Permite que os programas sejam executados de forma eficiente e segura.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{É fácil lembrar do...}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/ruindows.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Exemplos}
+\begin{center}
+\includegraphics[width=0.8\linewidth]{figs/os.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Opa...}
+\begin{center}
+\includegraphics[width=0.3\linewidth]{figs/poweredlinux.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{História do GNU/Linux}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{O que é o Unix?}
+\begin{itemize}
+  \item Unix é um sistema operacional criado em 1969 por Ken Thompson, Dennis Ritchie e outros desenvolvedores na AT\&T Bell Labs.
+\end{itemize}
+\begin{center}
+\includegraphics[width=0.6\linewidth]{figs/thompson_ritchie.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{O que é o Unix?}
+\begin{itemize}
+  \item Foi projetado para ser um sistema multitarefa e multiusuário.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Unix?}
+\begin{itemize}
+  \item Unix é um sistema operacional criado em 1969 por Ken Thompson, Dennis Ritchie e outros desenvolvedores na AT\&T Bell Labs.
+  \item Foi projetado para ser um sistema multitarefa e multiusuário.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Unix?}
+\begin{itemize}
+  \item Unix é um sistema operacional criado em 1969 por Ken Thompson, Dennis Ritchie e outros desenvolvedores na AT\&T Bell Labs.
+  \item Foi projetado para ser um sistema multitarefa e multiusuário.
+  \item Escrito originalmente em linguagem de montagem, depois foi reescrito em C, facilitando sua portabilidade.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Unix?}
+\begin{center}
+    \includegraphics[width=0.45\linewidth]{figs/cpython.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{A Filosofia Unix}
+\begin{itemize}
+  \item Filosofia do Unix: programas pequenos, simples e modulares.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A Filosofia Unix}
+\begin{itemize}
+  \item Filosofia do Unix: programas pequenos, simples e modulares.
+  \item Utiliza uma estrutura de arquivos hierárquica e...
+  \begin{center}
+        \includegraphics[width=1.0\linewidth]{figs/linux-filesystem.png}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A Filosofia Unix}
+\begin{itemize}
+  \item Filosofia do Unix: programas pequenos, simples e modulares.
+  \item Utiliza uma estrutura de arquivos hierárquica e possui comandos em modo texto muito poderosos.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{figs/commandline.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{A Filosofia Unix}
+\begin{itemize}
+  \item Filosofia do Unix: programas pequenos, simples e modulares.
+  \item Utiliza uma estrutura de arquivos hierárquica e possui comandos em modo texto muito poderosos.
+  \item Muitos conceitos do Unix são usados até hoje em servidores, redes e segurança da informação.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item O Unix estabeleceu os conceitos fundamentais dos sistemas operacionais modernos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item O Unix estabeleceu os conceitos fundamentais dos sistemas operacionais modernos.
+  \item Mas... nos anos 80 e 90, versões completas do Unix eram proprietárias e caras.
+    \begin{center}
+        \includegraphics[width=0.4\linewidth]{figs/dinheiro.jpeg}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item Linus Torvalds, estudante na Finlândia, queria um sistema similar ao Unix, mas gratuito.
+  \begin{center}
+        \includegraphics[width=0.5\linewidth]{figs/torvalds.jpeg}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item Linus Torvalds, estudante na Finlândia, queria um sistema similar ao Unix, mas gratuito.
+  \item Em 1991, ele começou a desenvolver seu próprio kernel no \textbf{Minix}, um sistema educacional baseado no Unix.
+  \begin{center}
+        \includegraphics[width=0.5\linewidth]{figs/minix.jpg}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Kernel?}
+  \begin{center}
+        \includegraphics[width=0.5\linewidth]{figs/dicaprio.jpg}
+    \end{center}
+\end{frame}
+
+
+\begin{frame}{O que é o Kernel?}
+\begin{itemize}
+  \item O kernel é o núcleo central de um sistema operacional.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Kernel?}
+\begin{itemize}
+  \item O kernel é o núcleo central de um sistema operacional.
+  \item Ele faz a ponte entre o hardware e os softwares em execução.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Kernel?}
+\begin{itemize}
+  \item O kernel é o núcleo central de um sistema operacional.
+  \item Ele faz a ponte entre o hardware e os softwares em execução.
+  \item Gerencia recursos do sistema como CPU, memória, dispositivos e chamadas de sistema.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Kernel?}
+\begin{itemize}
+  \item O kernel é o núcleo central de um sistema operacional.
+  \item Ele faz a ponte entre o hardware e os softwares em execução.
+  \item Gerencia recursos do sistema como CPU, memória, dispositivos e chamadas de sistema.
+  \item No Linux, o kernel é modular e pode ser personalizado ou recompilado.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Ops...}
+\begin{itemize}
+  \item Voltando pro Linux...
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item Linus Torvalds, estudante na Finlândia, queria um sistema similar ao Unix, mas gratuito.
+  \item Em 1991, ele começou a desenvolver seu próprio kernel no \textbf{Minix}, um sistema educacional baseado no Unix.
+  \item Torvalds lançou o Linux como um projeto \textbf{open source}, permitindo que a comunidade contribuísse.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Open Source}
+\begin{itemize}
+  \item O código-fonte está disponível publicamente para leitura, modificação e redistribuição.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Open Source}
+\begin{itemize}
+  \item O código-fonte está disponível publicamente para leitura, modificação e redistribuição.
+  \item Enfatiza os benefícios técnicos da colaboração aberta.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Open Source}
+\begin{itemize}
+  \item O código-fonte está disponível publicamente para leitura, modificação e redistribuição.
+  \item Enfatiza os benefícios técnicos da colaboração aberta.
+  \item Nem todo open source é software livre (diferenças filosóficas e legais).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Open Source}
+\begin{itemize}
+  \item O código-fonte está disponível publicamente para leitura, modificação e redistribuição.
+  \item Enfatiza os benefícios técnicos da colaboração aberta.
+  \item Nem todo open source é \textbf{software livre} (diferenças filosóficas e legais).
+  \begin{center}
+        \includegraphics[width=0.7\linewidth]{figs/fsf.png}
+    \end{center}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+    \begin{itemize}
+        \item Executar o programa para qualquer propósito.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+    \begin{itemize}
+        \item Executar o programa para qualquer propósito.
+        \item Estudar como o programa funciona e modificá-lo.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+    \begin{itemize}
+        \item Executar o programa para qualquer propósito.
+        \item Estudar como o programa funciona e modificá-lo.
+        \item Redistribuir cópias.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+    \begin{itemize}
+        \item Executar o programa para qualquer propósito.
+        \item Estudar como o programa funciona e modificá-lo.
+        \item Redistribuir cópias.
+        \item Melhorar o programa e liberar suas melhorias.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Livre}
+\begin{itemize}
+    \item Software que respeita a liberdade dos usuários.
+    \item Usuários podem:
+    \begin{itemize}
+        \item Executar o programa para qualquer propósito.
+        \item Estudar como o programa funciona e modificá-lo.
+        \item Redistribuir cópias.
+        \item Melhorar o programa e liberar suas melhorias.
+    \end{itemize}
+    \item \textbf{Não é sinônimo de software gratuito}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Free Software}
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{figs/free.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Software Proprietário}
+\begin{itemize}
+  \item Software cujo código-fonte não é acessível ao público.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Proprietário}
+\begin{itemize}
+  \item Software cujo código-fonte não é acessível ao público.
+  \item Os usuários têm licenças restritas: podem usar, mas não modificar ou redistribuir.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Proprietário}
+\begin{itemize}
+  \item Software cujo código-fonte não é acessível ao público.
+  \item Os usuários têm licenças restritas: podem usar, mas não modificar ou redistribuir.
+  \item Comum em empresas que protegem sua propriedade intelectual.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Software Proprietário}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/grana.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{Do Unix ao Linux}
+\begin{itemize}
+  \item O Unix estabeleceu os conceitos fundamentais dos sistemas operacionais modernos.
+  \item Inspirado pelo Unix, o Linux surgiu como uma alternativa de código aberto e gratuita.
+  \item Linus Torvalds criou o kernel do Linux em 1991, com base nos princípios do Unix.
+  \item Linux mantém compatibilidade com muitos comandos e estruturas do Unix.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O surgimento do Linux}
+\begin{itemize}
+    \item O Linux foi originalmente lançado sob uma licença restrita.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O surgimento do Linux}
+\begin{itemize}
+    \item O Linux foi originalmente lançado sob uma licença restrita.
+    \item Mas em 1992, Linux foi relicenciado sob a GNU GPL (General Public License).
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.25\linewidth]{figs/gnu-logo.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item Em 1983, \textbf{Richard Stallman} lançou o \textbf{Projeto GNU} (GNU's Not Unix).
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{figs/stallman.jpeg}
+\end{center}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item Em 1983, \textbf{Richard Stallman} lançou o \textbf{Projeto GNU} (GNU's Not Unix).
+    \item Seu objetivo era criar um sistema operacional totalmente livre, inspirado no Unix.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{figs/tv.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item Em 1983, \textbf{Richard Stallman} lançou o \textbf{Projeto GNU} (GNU's Not Unix).
+    \item Seu objetivo era criar um sistema operacional totalmente livre, inspirado no Unix.
+    \item Em 1985, Stallman fundou a \textbf{Free Software Foundation (FSF)} para apoiar o movimento.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/fsf.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Stallman na UnB}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/stallmanunb.jpg}\\
+    \footnotesize{\url{https://gesporte.blogspot.com/2012/12/richard-stallman-realiza-palestra-na.html}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Stallman na UnB}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/stallmanunb2.png}\\
+    \footnotesize{\url{https://www.youtube.com/watch?v=tZhqlpNNK-g}}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Stallman no Brasil}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{figs/stallman_unicamp.jpg}\\
+    \footnotesize{\url{https://unicamp.br/unicamp/noticias/2017/05/25/richard-stallman-fundador-do-movimento-software-livre-faz-palestra-na-unicamp/}}
+\end{center}
+\end{frame}
+
+\begin{frame}{Stallman no Brasil}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/stallman_unicamp2.jpg}\\
+    \footnotesize{\url{https://unicamp.br/unicamp/noticias/2017/05/25/richard-stallman-fundador-do-movimento-software-livre-faz-palestra-na-unicamp/}}
+\end{center}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item O Projeto GNU desenvolveu ferramentas essenciais:
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item O Projeto GNU desenvolveu ferramentas essenciais:
+    \begin{itemize}
+        \item Compilador \texttt{GCC};
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item O Projeto GNU desenvolveu ferramentas essenciais:
+    \begin{itemize}
+        \item Compilador \texttt{GCC};
+        \item Editor \texttt{Emacs};
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item O Projeto GNU desenvolveu ferramentas essenciais:
+    \begin{itemize}
+        \item Compilador \texttt{GCC};
+        \item Editor \texttt{Emacs};
+        \item shell \texttt{Bash}, entre outros.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{A História do Projeto GNU}
+\begin{itemize}
+    \item O Projeto GNU desenvolveu ferramentas essenciais:
+    \begin{itemize}
+        \item Compilador \texttt{GCC};
+        \item Editor \texttt{Emacs};
+        \item shell \texttt{Bash}, entre outros.
+    \end{itemize}
+    \item Contudo, o sistema GNU não tinha um \textbf{kernel funcional}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Faltava um Kernel Livre}
+\begin{itemize}
+    \item O Projeto GNU tinha quase todos os componentes de um sistema operacional...
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Faltava um Kernel Livre}
+\begin{itemize}
+    \item O Projeto GNU tinha quase todos os componentes de um sistema operacional...
+    \item ... mas faltava o kernel (núcleo do sistema).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Faltava um Kernel Livre}
+\begin{itemize}
+    \item O Projeto GNU tinha quase todos os componentes de um sistema operacional...
+    \item ... mas faltava o kernel (núcleo do sistema).
+    \item O kernel Hurd estava em desenvolvimento, mas era instável e lento.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{GNU + Linux = GNU/Linux}
+\begin{itemize}
+    \item Com o Linux licenciado como livre, tornou-se possível combiná-lo com o restante do sistema GNU.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/worlds.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{GNU + Linux = GNU/Linux}
+\begin{itemize}
+    \item Com o Linux licenciado como livre, tornou-se possível combiná-lo com o restante do sistema GNU.
+    \item Surgiu, assim, o sistema operacional completo conhecido como \textbf{GNU/Linux}.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/linus_stallman.jpg}
+\end{center}
+\end{frame}
+
+\begin{frame}{GNU + Linux = GNU/Linux}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{figs/meme1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{GNU + Linux = GNU/Linux}
+\begin{itemize}
+    \item O nome (\textbf{GNU/Linux}) reconhece a contribuição do Projeto GNU.
+    \item Stallman defende o uso do termo para dar crédito ao movimento Software Livre.
+    \item Ainda há debate na comunidade: muitos simplesmente chamam de ``Linux''.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{GNU + Linux = GNU/Linux}
+\begin{center}
+    \includegraphics[width=0.5\linewidth]{figs/memegnu.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Impacto no mundo}
+\begin{itemize}
+    \item GNU/Linux domina servidores, dispositivos embarcados e smartphones (Android).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Impacto no mundo}
+\begin{itemize}
+    \item GNU/Linux domina servidores, dispositivos embarcados e smartphones (Android).
+    \item É a base de projetos de soberania tecnológica e educação.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Impacto no mundo}
+\begin{itemize}
+    \item GNU/Linux domina servidores, dispositivos embarcados e smartphones (Android).
+    \item É a base de projetos de soberania tecnológica e educação.
+    \item Incentiva valores como liberdade, transparência e colaboração.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{GNU/Linux}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}{Modo Texto e Modo Gráfico}
+\begin{itemize}
+    \item O Linux pode ser usado de duas formas principais:
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Texto e Modo Gráfico}
+\begin{itemize}
+    \item O Linux pode ser usado de duas formas principais:
+    \begin{enumerate}
+        \item \textbf{Modo texto (console ou terminal)}
+    \end{enumerate}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/texto.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Modo Texto e Modo Gráfico}
+\begin{itemize}
+    \item O Linux pode ser usado de duas formas principais:
+    \begin{enumerate}
+        \item \textbf{Modo gráfico (interface de desktop)}
+    \end{enumerate}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/gnome.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Modo Texto e Modo Gráfico}
+\begin{itemize}
+    \item O Linux pode ser usado de duas formas principais:
+    \begin{enumerate}
+        \item \textbf{Modo texto (console ou terminal)}
+        \item \textbf{Modo gráfico (interface de desktop)}
+    \end{enumerate}
+    \item Ambas coexistem no sistema e podem ser usadas conforme a necessidade.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Texto (Modo Console)}
+\begin{itemize}
+    \item Baseada em linha de comando (CLI - \textit{Command Line Interface}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Texto (Modo Console)}
+\begin{itemize}
+    \item Baseada em linha de comando (CLI - \textit{Command Line Interface}).
+    \item Utiliza interpretadores de comandos chamados \textbf{shells} (ex: \texttt{bash}, \texttt{zsh}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Texto (Modo Console)}
+\begin{itemize}
+    \item Baseada em linha de comando (CLI - \textit{Command Line Interface}).
+    \item Utiliza interpretadores de comandos chamados \textbf{shells} (ex: \texttt{bash}, \texttt{zsh}).
+    \item Vantagens:
+    \begin{itemize}
+        \item Leve e rápida
+        \item Ideal para servidores e automação
+        \item Controle preciso do sistema
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Texto (Modo Console)}
+\begin{itemize}
+    \item Baseada em linha de comando (CLI - \textit{Command Line Interface}).
+    \item Utiliza interpretadores de comandos chamados \textbf{shells} (ex: \texttt{bash}, \texttt{zsh}).
+    \item Vantagens:
+    \begin{itemize}
+        \item Leve e rápida
+        \item Ideal para servidores e automação
+        \item Controle preciso do sistema
+    \end{itemize}
+    \item Ferramentas (comandos) comuns: \texttt{ls}, \texttt{cd}, \texttt{nano}, \texttt{apt}, \texttt{grep}, etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Modo Gráfico (Interface Gráfica)}
+\begin{itemize}
+    \item Permite interação com janelas, ícones e menus.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Modo Gráfico (Interface Gráfica)}
+\begin{itemize}
+    \item Permite interação com janelas, ícones e menus.
+    \item Tipos de ambientes gráficos (Desktops)
+    \begin{itemize}
+        \item \textbf{GNOME}: Interface moderna e limpa (usada no Ubuntu padrão)
+    \end{itemize}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/gnome.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Modo Gráfico (Interface Gráfica)}
+\begin{itemize}
+    \item Permite interação com janelas, ícones e menus.
+    \item Tipos de ambientes gráficos (Desktops)
+    \begin{itemize}
+        \item \textbf{KDE Plasma}: Altamente customizável e visualmente avançado
+    \end{itemize}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{figs/kde.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Modo Gráfico (Interface Gráfica)}
+\begin{itemize}
+    \item Permite interação com janelas, ícones e menus.
+    \item Tipos de ambientes gráficos (Desktops)
+    \begin{itemize}
+        \item \textbf{XFCE}: Leve, ideal para computadores modestos
+    \end{itemize}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{figs/xfce.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Modo Gráfico (Interface Gráfica)}
+\begin{itemize}
+    \item Permite interação com janelas, ícones e menus.
+    \item Tipos de ambientes gráficos (Desktops)
+    \begin{itemize}
+        \item \textbf{Cinnamon}: Foco em familiaridade (usado no Linux Mint)
+    \end{itemize}
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.8\linewidth]{figs/cinnamon.jpg}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Modo texto vs modo gráfico}
+\begin{itemize}
+    \item \textbf{Modo Texto}:
+    \begin{itemize}
+        \item Administração de servidores
+        \item Scripts e automação
+        \item Diagnóstico de problemas
+    \end{itemize}
+    \item \textbf{Modo Gráfico}:
+    \begin{itemize}
+        \item Usuário comum
+        \item Tarefas multimídia e produtividade
+        \item Navegação, edição de documentos, etc.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{Distribuições Linux}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+        \item Ferramentas GNU (como Bash, coreutils)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+        \item Ferramentas GNU (como Bash, coreutils)
+        \item Gerenciador de pacotes
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+        \item Ferramentas GNU (como Bash, coreutils)
+        \item Gerenciador de pacotes
+        \item Interface gráfica (opcional)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+        \item Ferramentas GNU (como Bash, coreutils)
+        \item Gerenciador de pacotes
+        \item Interface gráfica (opcional)
+        \item Conjunto de softwares padrão
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que são Distribuições Linux?}
+\begin{itemize}
+    \item Distribuições (\textbf{distros}) são versões completas do sistema operacional GNU/Linux.
+    \item Elas incluem:
+    \begin{itemize}
+        \item O \textbf{kernel Linux}
+        \item Ferramentas GNU (como Bash, coreutils)
+        \item Gerenciador de pacotes
+        \item Interface gráfica (opcional)
+        \item Conjunto de softwares padrão
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cardápio de Distribuições}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/distros.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{O que diferencia as distribuições?}
+\begin{itemize}
+    \item \textbf{Gerenciador de pacotes} (ex: \texttt{apt}, \texttt{dnf}, \texttt{installpkg})
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que diferencia as distribuições?}
+\begin{itemize}
+    \item \textbf{Gerenciador de pacotes} (ex: \texttt{apt}, \texttt{dnf}, \texttt{installpkg})
+    \item \textbf{Foco do público-alvo} (usuários finais, servidores, segurança, etc.)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que diferencia as distribuições?}
+\begin{itemize}
+    \item \textbf{Gerenciador de pacotes} (ex: \texttt{apt}, \texttt{dnf}, \texttt{installpkg})
+    \item \textbf{Foco do público-alvo} (usuários finais, servidores, segurança, etc.)
+    \item \textbf{Ambiente gráfico padrão} (GNOME, KDE, XFCE, etc.)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que diferencia as distribuições?}
+\begin{itemize}
+    \item \textbf{Gerenciador de pacotes} (ex: \texttt{apt}, \texttt{dnf}, \texttt{installpkg})
+    \item \textbf{Foco do público-alvo} (usuários finais, servidores, segurança, etc.)
+    \item \textbf{Ambiente gráfico padrão} (GNOME, KDE, XFCE, etc.)
+    \item \textbf{Frequência de atualização} (rolling release vs versões estáveis)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que diferencia as distribuições?}
+\begin{itemize}
+    \item \textbf{Gerenciador de pacotes} (ex: \texttt{apt}, \texttt{dnf}, \texttt{installpkg})
+    \item \textbf{Foco do público-alvo} (usuários finais, servidores, segurança, etc.)
+    \item \textbf{Ambiente gráfico padrão} (GNOME, KDE, XFCE, etc.)
+    \item \textbf{Frequência de atualização} (rolling release vs versões estáveis)
+    \item \textbf{Licenciamento e filosofia} (ex: 100\% livre vs inclusão de drivers proprietários)
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{figs/mark.jpg}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+    \item Baseado no Debian, com foco em:
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{figs/debian.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+    \item Baseado no Debian, com foco em:
+    \begin{itemize}
+        \item Facilidade de uso
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+    \item Baseado no Debian, com foco em:
+    \begin{itemize}
+        \item Facilidade de uso
+        \item Acessibilidade para usuários iniciantes
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+    \item Baseado no Debian, com foco em:
+    \begin{itemize}
+        \item Facilidade de uso
+        \item Acessibilidade para usuários iniciantes
+        \item Suporte corporativo e comunitário
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{O que é o Ubuntu?}
+\begin{itemize}
+    \item Ubuntu é uma das distribuições GNU/Linux mais populares do mundo.
+    \item Criado em 2004 pela empresa \textbf{Canonical Ltd.}, fundada por \textbf{Mark Shuttleworth}.
+    \item Baseado no Debian, com foco em:
+    \begin{itemize}
+        \item Facilidade de uso
+        \item Acessibilidade para usuários iniciantes
+        \item Suporte corporativo e comunitário
+    \end{itemize}
+    \item O nome ``Ubuntu'' é derivado de um conceito africano que significa ``humanidade para os outros''.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Antigamente...}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/cdubuntu.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Último CD do Ubuntu}
+\begin{center}
+    \includegraphics[width=0.7\linewidth]{figs/cd1.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Características principais}
+\begin{itemize}
+    \item Interface gráfica padrão: \textbf{GNOME} (anteriormente Unity).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Características principais}
+\begin{itemize}
+    \item Interface gráfica padrão: \textbf{GNOME} (anteriormente Unity).
+    \item Ciclo de lançamentos:
+    \begin{itemize}
+        \item Nova versão a cada 6 meses
+        \item Versões LTS (Long Term Support) a cada 2 anos com suporte por 5 anos
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Características principais}
+\begin{itemize}
+    \item Interface gráfica padrão: \textbf{GNOME} (anteriormente Unity).
+    \item Ciclo de lançamentos:
+    \begin{itemize}
+        \item Nova versão a cada 6 meses
+        \item Versões LTS (Long Term Support) a cada 2 anos com suporte por 5 anos
+    \end{itemize}
+    \item Gerenciador de pacotes: \texttt{APT}, baseado em arquivos \texttt{.deb}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Características principais}
+\begin{itemize}
+    \item Compatibilidade com ``softwares'' e \textit{drivers} proprietários.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{figs/nvidia.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{Terminal e Comandos}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+\end{frame}
+
+
+\begin{frame}{Sistema de Arquivos no Linux/Ubuntu}
+\begin{itemize}
+    \item O Linux usa um sistema de arquivos hierárquico com raiz em \texttt{/} (barra).
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.9\linewidth]{figs/linux-filesystem.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Sistema de Arquivos no Linux/Ubuntu}
+\begin{itemize}
+    \item O Linux usa um sistema de arquivos hierárquico com raiz em \texttt{/} (barra).
+    \item Todos os arquivos e diretórios fazem parte de uma única árvore.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sistema de Arquivos no Linux/Ubuntu}
+\begin{itemize}
+    \item O Linux usa um sistema de arquivos hierárquico com raiz em \texttt{/} (barra).
+    \item Todos os arquivos e diretórios fazem parte de uma única árvore.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sistema de Arquivos no Linux/Ubuntu}
+\begin{itemize}
+    \item O Linux usa um sistema de arquivos hierárquico com raiz em \texttt{/} (barra).
+    \item Todos os arquivos e diretórios fazem parte de uma única árvore.
+    \item O sistema de arquivos mais comum no Ubuntu é o \textbf{ext4}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Montagem de Dispositivos no Linux}
+\begin{itemize}
+    \item No Linux, dispositivos como HDs, SSDs, pendrives e DVDs não aparecem automaticamente com letras (como no Windows).
+    \item Eles são integrados ao sistema de arquivos por meio de um processo chamado \textbf{montagem} (\texttt{mount}).
+    \item Montar significa \textbf{ligar o conteúdo de um dispositivo a um diretório existente}.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{sudo mount /dev/sdb1 /mnt/usb}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Montagem de Dispositivos no Linux}
+\begin{itemize}
+    \item No Linux, dispositivos como HDs, SSDs, pendrives e DVDs não aparecem automaticamente com letras (como no Windows).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Montagem de Dispositivos no Linux}
+\begin{itemize}
+    \item No Linux, dispositivos como HDs, SSDs, pendrives e DVDs não aparecem automaticamente com letras (como no Windows).
+    \item Eles são integrados ao sistema de arquivos por meio de um processo chamado \textbf{montagem} (\texttt{mount}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Montagem de Dispositivos no Linux}
+\begin{itemize}
+    \item No Linux, dispositivos como HDs, SSDs, pendrives e DVDs não aparecem automaticamente com letras (como no Windows).
+    \item Eles são integrados ao sistema de arquivos por meio de um processo chamado \textbf{montagem} (\texttt{mount}).
+    \item Montar significa \textbf{ligar o conteúdo de um dispositivo a um diretório existente}.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{sudo mount /dev/sdb1 /mnt/usb}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Montagem de Dispositivos no Linux}
+\begin{itemize}
+    \item Após a montagem, os arquivos podem ser acessados normalmente em \texttt{/mnt/usb}.
+    \item Para remover com segurança, usa-se \texttt{umount}:
+    \begin{block}{}
+        \texttt{sudo umount /mnt/usb}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+    \item \texttt{/bin}, \texttt{/usr/bin}: Executáveis essenciais
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+    \item \texttt{/bin}, \texttt{/usr/bin}: Executáveis essenciais
+    \item \texttt{/var}: Arquivos variáveis (logs, spool)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+    \item \texttt{/bin}, \texttt{/usr/bin}: Executáveis essenciais
+    \item \texttt{/var}: Arquivos variáveis (logs, spool)
+    \item \texttt{/tmp}: Arquivos temporários
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+    \item \texttt{/bin}, \texttt{/usr/bin}: Executáveis essenciais
+    \item \texttt{/var}: Arquivos variáveis (logs, spool)
+    \item \texttt{/tmp}: Arquivos temporários
+    \item \texttt{/dev}: Dispositivos como arquivos (ex: \texttt{/dev/sda})
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Diretórios principais}
+\begin{itemize}
+    \item \texttt{/}: Diretório raiz
+    \item \texttt{/home}: Diretórios dos usuários
+    \item \texttt{/etc}: Arquivos de configuração do sistema
+    \item \texttt{/bin}, \texttt{/usr/bin}: Executáveis essenciais
+    \item \texttt{/var}: Arquivos variáveis (logs, spool)
+    \item \texttt{/tmp}: Arquivos temporários
+    \item \texttt{/dev}: Dispositivos como arquivos (ex: \texttt{/dev/sda})
+    \item \texttt{/mnt}: \texttt{/media}: Pontos de montagem de dispositivos externos
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Usuários no Linux}
+\begin{itemize}
+    \item Todo acesso no Linux é feito por meio de um \textbf{usuário}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Usuários no Linux}
+\begin{itemize}
+    \item Todo acesso no Linux é feito por meio de um \textbf{usuário}.
+    \item Existem dois tipos principais:
+    \begin{itemize}
+        \item \textbf{Usuários comuns}: possuem permissões limitadas.
+        \item \textbf{Usuário root}: superusuário com controle total do sistema.
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Usuários no Linux}
+\begin{itemize}
+    \item Cada usuário possui:
+    \begin{itemize}
+        \item Um diretório pessoal (ex: \texttt{/home/aluno})
+        \item Um identificador numérico (UID)
+        \item Um grupo padrão
+    \end{itemize}
+    \item As permissões de arquivos e comandos variam de acordo com o usuário.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comandos \texttt{sudo}}
+\begin{itemize}
+    \item \texttt{sudo} permite que um usuário autorizado execute comandos como root.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{sudo adduser viniciusborges}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comandos \texttt{sudo}}
+\begin{itemize}
+    \item \texttt{sudo} permite que um usuário autorizado execute comandos como root.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{sudo adduser viniciusborges}
+    \end{block}
+    \item Atenção: nunca utilize o root no cotidiano.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comandos \texttt{sudo}}
+\begin{itemize}
+    \item \texttt{sudo} permite que um usuário autorizado execute comandos como root.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{sudo adduser viniciusborges}
+    \end{block}
+    \item Atenção: nunca utilize o root no cotidiano.
+    \item Prefira \texttt{sudo} para maior controle e segurança.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{ls}}
+\begin{itemize}
+    \item Lista arquivos e diretórios no diretório atual.
+    \item Para listar os arquivos no diretório atual:
+    \begin{block}{}
+        \texttt{ls}
+    \end{block}
+    \item Para listar os arquivos no diretório ``Documents'':
+    \begin{block}{}
+        \texttt{ls Documents}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{ls}}
+\begin{itemize}
+    \item O comando:
+    \begin{block}{}
+        \texttt{ls -l}
+    \end{block}
+    \item Mostra permissões, dono, tamanho e data de modificação.
+    \item Use \texttt{ls -a} para ver arquivos ocultos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{cd}}
+\begin{itemize}
+    \item Navega entre diretórios.
+    \item Exemplos:
+    \begin{block}{}
+        \texttt{cd /home/aluno} \\
+        \texttt{cd ..} \hspace{1cm} (volta um diretório)
+    \end{block}
+    \item Use \texttt{cd ~} para ir para o diretório do usuário.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{pwd}}
+\begin{itemize}
+    \item Mostra o caminho completo (absoluto) do diretório atual.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{pwd}
+    \end{block}
+    \item pode retornar algo como:
+    \begin{block}{}
+        \texttt{/home/aluno/projetos}
+    \end{block}
+    \item Útil para saber onde você está no sistema de arquivos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{df -h}}
+\begin{itemize}
+    \item Exibe o uso do disco (espaço ocupado/livre).
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{df -h}
+    \end{block}
+    \item A opção \texttt{-h} mostra os valores em GB/MB.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{du -sh}}
+\begin{itemize}
+    \item Mostra o tamanho de um diretório específico.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{du -sh ~/Downloads}
+    \end{block}
+    \item Útil para identificar pastas que ocupam muito espaço.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{find}}
+\begin{itemize}
+    \item Localiza arquivos e diretórios de forma recursiva.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{find /home -name arquivo.txt}
+    \end{block}
+    \item Suporta filtros por tipo, data e tamanho.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{locate}}
+\begin{itemize}
+    \item Busca rápida de arquivos usando um banco de dados indexado.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{locate config.json}
+    \end{block}
+    \item Atualize o índice com \texttt{sudo updatedb}.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{mkdir}}
+\begin{itemize}
+    \item Cria diretórios (pastas) no sistema de arquivos.
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{mkdir projetos}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{mkdir}}
+\begin{itemize}
+    \item Para criar diretórios aninhados:
+    \begin{block}{}
+        \texttt{mkdir -p curso/linux/aulas}
+    \end{block}
+    \item O argumento \texttt{-p} cria todos os diretórios intermediários.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{rm}}
+\begin{itemize}
+    \item Remove arquivos ou diretórios.
+    \item Exemplo para arquivos:
+    \begin{block}{}
+        \texttt{rm arquivo.txt}
+    \end{block}
+    \item Para remover diretórios e seu conteúdo:
+    \begin{block}{}
+        \texttt{rm -r pasta/}
+    \end{block}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{rm}}
+\begin{itemize}
+    \item Use com \texttt{-f} para forçar a remoção sem confirmação:
+    \texttt{rm -rf pasta/}
+    \item \textbf{CUIDADO:} não há lixeira. Executou \texttt{rm}, já era!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{mv}}
+\begin{itemize}
+    \item Move arquivos e diretórios ou altera seus nomes.
+    \item Para mover:
+    \begin{block}{}
+        \texttt{mv relatorio.txt /home/aluno/documentos/}
+    \end{block}
+    \item Para renomear:
+    \begin{block}{}
+        \texttt{mv antigo.txt novo.txt}
+    \end{block}
+    \item Substitui o arquivo de destino, se já existir.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{cp}}
+\begin{itemize}
+    \item Copia arquivos ou diretórios.
+    \item Exemplo simples:
+    \begin{block}{}
+        \texttt{cp arquivo.txt copia.txt}
+    \end{block}
+    \item Para copiar diretórios com conteúdo:
+    \begin{block}{}
+        \texttt{cp -r pasta/ backup/}
+    \end{block}
+    \item O argumento \texttt{-r} (recursivo) é necessário para copiar diretórios.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{cat}}
+\begin{itemize}
+    \item \texttt{cat} vem de ``concatenate'' (concatenar).
+    \item É usado para:
+    \begin{itemize}
+        \item Exibir o conteúdo de arquivos no terminal
+        \item Concatenar arquivos em sequência
+        \item Criar arquivos simples a partir da entrada do usuário
+    \end{itemize}
+    \item É um dos comandos mais usados em scripts e inspeção rápida de arquivos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{cat}}
+\begin{itemize}
+    \item \texttt{cat arquivo.txt} \\
+    Exibe o conteúdo de \texttt{arquivo.txt}
+
+    \item \texttt{cat arquivo1.txt arquivo2.txt > combinado.txt} \\
+    Junta dois arquivos em um novo arquivo
+
+    \item \texttt{cat > novo.txt} \\
+    Cria um arquivo novo a partir da entrada no terminal (finalize com \texttt{Ctrl+D})
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{cat}}
+\begin{itemize}
+
+    \item \texttt{cat arquivo.txt | less} \\
+    Exibe o conteúdo com rolagem interativa
+
+    \item \texttt{cat arquivo.txt | grep "erro"} \\
+    Filtra linhas que contenham ``erro''
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item \texttt{nano} é um editor de texto simples e fácil de usar no terminal.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item \texttt{nano} é um editor de texto simples e fácil de usar no terminal.
+    \item Ideal para iniciantes que precisam editar arquivos de forma rápida e direta.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item \texttt{nano} é um editor de texto simples e fácil de usar no terminal.
+    \item Ideal para iniciantes que precisam editar arquivos de forma rápida e direta.
+    \item Exibe os comandos mais usados na parte inferior da tela.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item \texttt{nano} é um editor de texto simples e fácil de usar no terminal.
+    \item Ideal para iniciantes que precisam editar arquivos de forma rápida e direta.
+    \item Exibe os comandos mais usados na parte inferior da tela.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item Exemplos de uso:
+    \begin{block}{}
+        \texttt{nano arquivo.txt}
+    \end{block}
+    \item Para salvar: \texttt{Ctrl + O}
+    \item Para sair: \texttt{Ctrl + X}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Editor de texto \texttt{nano}}
+\begin{itemize}
+    \item Exemplos de uso:
+    \begin{block}{}
+        \texttt{nano arquivo.txt}
+    \end{block}
+    \item Para salvar: \texttt{Ctrl + O}
+    \item Para sair: \texttt{Ctrl + X}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{E o Editor \texttt{vi}?}
+\begin{itemize}
+    \item Espere o curso avançado de GNU/Linux da IEEE Computer Society UnB!
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.4\linewidth]{figs/vi.jpg}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Comando \texttt{grep}}
+\begin{itemize}
+    \item O comando \texttt{grep} busca padrões de texto em arquivos ou na saída de outros comandos.
+    \item Nome vem de: \textbf{Global Regular Expression Print}.
+    \item É uma ferramenta poderosa para filtragem de conteúdo com base em expressões regulares.
+    \item Usos comuns:
+    \begin{itemize}
+        \item Encontrar palavras específicas em arquivos
+        \item Filtrar linhas em comandos como \texttt{cat}, \texttt{ps}, \texttt{dmesg}
+        \item Buscar por padrões (ex: datas, IPs, erros)
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Comando \texttt{grep}}
+\begin{itemize}
+    \item \texttt{grep "erro" log.txt} \\
+    Mostra linhas com a palavra ``erro'' no arquivo
+
+    \item \texttt{cat arquivo.txt | grep "palavra"} \\
+    Filtra linhas com ``palavra'' na saída do \texttt{cat}
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{grep}}
+\begin{itemize}
+    \item \texttt{grep -i "usuario" dados.txt} \\
+    Busca ignorando maiúsculas/minúsculas
+
+    \item \texttt{grep -r "main" .} \\
+    Busca recursivamente por ``main'' em todos os arquivos
+
+    \item \texttt{grep -n "import" script.py} \\
+    Mostra o número das linhas onde o termo aparece
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item O comando \texttt{apt} é o gerenciador de pacotes usado no Ubuntu.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item O comando \texttt{apt} é o gerenciador de pacotes usado no Ubuntu.
+    \item Permite instalar, atualizar, remover e buscar pacotes de software.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item O comando \texttt{apt} é o gerenciador de pacotes usado no Ubuntu.
+    \item Permite instalar, atualizar, remover e buscar pacotes de software.
+    \item Interage com repositórios oficiais e externos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item O comando \texttt{apt} é o gerenciador de pacotes usado no Ubuntu.
+    \item Permite instalar, atualizar, remover e buscar pacotes de software.
+    \item Interage com repositórios oficiais e externos.
+    \item Substitui comandos mais antigos como \texttt{apt-get} em uso interativo.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item O comando \texttt{apt} é o gerenciador de pacotes usado no Ubuntu.
+    \item Permite instalar, atualizar, remover e buscar pacotes de software.
+    \item Interage com repositórios oficiais e externos.
+    \item Substitui comandos mais antigos como \texttt{apt-get} em uso interativo.
+    \item Requer permissões de superusuário (\texttt{sudo}).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+    \item \texttt{sudo apt upgrade}: atualiza os pacotes instalados
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+    \item \texttt{sudo apt upgrade}: atualiza os pacotes instalados
+    \item \texttt{sudo apt install nome-do-pacote}: instala um pacote
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+    \item \texttt{sudo apt upgrade}: atualiza os pacotes instalados
+    \item \texttt{sudo apt install nome-do-pacote}: instala um pacote
+    \item \texttt{sudo apt remove nome-do-pacote}: remove um pacote
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+    \item \texttt{sudo apt upgrade}: atualiza os pacotes instalados
+    \item \texttt{sudo apt install nome-do-pacote}: instala um pacote
+    \item \texttt{sudo apt remove nome-do-pacote}: remove um pacote
+    \item \texttt{apt search nome}: procura um pacote
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{apt}}
+\begin{itemize}
+    \item \texttt{sudo apt update}: atualiza a lista de pacotes disponíveis
+    \item \texttt{sudo apt upgrade}: atualiza os pacotes instalados
+    \item \texttt{sudo apt install nome-do-pacote}: instala um pacote
+    \item \texttt{sudo apt remove nome-do-pacote}: remove um pacote
+    \item \texttt{apt search nome}: procura um pacote
+    \item \texttt{apt show nome}: mostra informações detalhadas do pacote
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Comando \texttt{ssh}}
+\begin{itemize}
+    \item O comando \texttt{ssh} permite acessar outro computador de forma segura via rede.
+    \item Utiliza criptografia para proteger a conexão.
+\end{itemize}
+\begin{center}
+    \includegraphics[width=0.6\linewidth]{figs/ssh.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{Comando \texttt{ssh}}
+\begin{itemize}
+    \item Sintaxe:
+    \begin{block}{}
+        \texttt{ssh usuario@ip-ou-dominio}
+    \end{block}
+    \item Exemplo:
+    \begin{block}{}
+        \texttt{ssh aluno@192.168.1.10}
+    \end{block}
+    \item Pode ser usado para acessar servidores, fazer manutenção, executar comandos remotos, etc.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Comando \texttt{scp}}
+\begin{itemize}
+    \item O comando \texttt{scp} copia arquivos entre máquinas usando o protocolo SSH.
+    \item Sintaxe básica:
+    \begin{block}{}
+        \texttt{scp origem destino}
+    \end{block}
+    \item Exemplos:
+    \begin{itemize}
+        \item \texttt{scp arquivo.txt aluno@192.168.1.10:/home/aluno/}
+        \item \texttt{scp aluno@192.168.1.10:/var/log/syslog ./}
+    \end{itemize}
+    \item Ideal para transferir arquivos de forma segura entre computadores remotos.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Considerações Finais}
+\begin{itemize}
+    \item Atenção: este material abordou os comandos e conceitos básicos do GNU/Linux.
+    \item Para aprofundar, explore tópicos intermediários e avançados:
+    \begin{itemize}
+        \item Permissões avançadas e controle de grupos (\texttt{chmod}, \texttt{chown}, \texttt{umask})
+        \item Redirecionamento e encadeamento de comandos (\texttt{>, >>, <, |, \&})
+        \item Scripts em \texttt{bash} (automatização de tarefas)
+        \item Gerenciamento de serviços com \texttt{systemd}
+        \item Agendamento de tarefas com \texttt{cron}
+        \item Gerenciamento de usuários e processos
+        \item Redes, firewall e segurança no Linux
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}[plain]{}
+\begin{center}
+\includegraphics[width=1.0\linewidth]{figs/unb.png}\\
+ \setbeamercolor{block body}{fg = white, bg=darkblue}
+\vspace{0.75cm}
+\begin{center}
+\includegraphics[width=0.2\linewidth]{figs/tux.png}\\
+\end{center}
+\begin{block}{ }
+\begin{center}
+\vspace{0.15cm}
+\Large{ \textbf{Minicurso de\\
+Introdução ao GNU/Linux}}
+\vspace{0.15cm}
+\end{center}
+\end{block}
+
+\vspace{0.4cm}
+\textbf{IEEE Computer Society UnB}\\
+\vspace{0.4cm}
+{\it Brasília-DF, 2025}\\
+ \end{center}
+\end{frame}
+%\frame{\frametitle{Colors}
+
+%\textcolor{red}{Of course that you could color your text}
+%\textcolor{orange}{Of course that you could color your text}
+%\textcolor{blue}{Of course that you could color your text}
+%\textcolor{yellow}{Of course that you could color your text}
+%\textcolor{green}{Of course that you could color your text}
+
+%}
+%-------------------------------------
+
+%\frame{\frametitle{Formating}
+
+%\begin{center}
+%\sout{strikethrough}  \\
+%\textit{italic} \\
+%\textbf{bold} \\
+%\underline{underline}
+
+%\end{center}
+
+%}
+
+\end{document}
